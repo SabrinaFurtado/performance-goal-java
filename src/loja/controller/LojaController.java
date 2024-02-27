@@ -3,15 +3,14 @@ package loja.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import loja.model.Produto;
+import loja.model.ProdutosEletronicos;
 
 public class LojaController {
 
-	private List<Produto> listaProdutos = new ArrayList<>();
-	private int numero = 0;
+	private List<ProdutosEletronicos> listaProdutos = new ArrayList<>();
 
-	public Produto procurarPorNumero(int numero) {
-		for (Produto produto : listaProdutos) {
+	public ProdutosEletronicos procurarPorNumero(int numero) {
+		for (ProdutosEletronicos produto : listaProdutos) {
 			if (produto.getNumero() == numero) {
 				return produto;
 			}
@@ -20,19 +19,20 @@ public class LojaController {
 	}
 
 	public void listarTodas() {
-		for (Produto produto : listaProdutos) {
+		for (ProdutosEletronicos produto : listaProdutos) {
 			produto.visualizar();
 		}
 	}
 
-	public void cadastrar(Produto produto) {
-		produto.setNumero(gerarNumero());
-		listaProdutos.add(produto);
-		System.out.println("Produto " + produto.getNome() + " cadastrado com sucesso!");
+	public void cadastrar(ProdutosEletronicos produto) {
+	    produto.setNumero(gerarNumero(0));
+	    listaProdutos.add(produto);
+	    System.out.println("Produto " + produto.getNome() + " cadastrado com sucesso!");
 	}
 
-	public void atualizar(Produto produto) {
-		Produto produtoEncontrado = procurarPorNumero(produto.getNumero());
+
+	public void atualizar(ProdutosEletronicos produto) {
+		ProdutosEletronicos produtoEncontrado = procurarPorNumero(produto.getNumero());
 		if (produtoEncontrado != null) {
 			int index = listaProdutos.indexOf(produtoEncontrado);
 			listaProdutos.set(index, produto);
@@ -43,7 +43,7 @@ public class LojaController {
 	}
 
 	public void deletar(int numero) {
-		Produto produtoEncontrado = procurarPorNumero(numero);
+		ProdutosEletronicos produtoEncontrado = procurarPorNumero(numero);
 		if (produtoEncontrado != null) {
 			listaProdutos.remove(produtoEncontrado);
 			System.out.println("Produto removido com sucesso!");
@@ -52,7 +52,53 @@ public class LojaController {
 		}
 	}
 
-	public int gerarNumero() {
+	public int gerarNumero(int numero) {
 		return ++numero;
+
 	}
+
+
+	public void listarProdutos() {
+		listarProdutos();
+		;
+
+	}
+
+	public int buscarProdutoPorCodigo(int numero) {
+		for (ProdutosEletronicos produto : listaProdutos) {
+			if (produto.getCodProduto() == numero) {
+				return numero;
+			}
+		}
+		return -1;
+
+	}
+
+	public float efetuarCompra(int codigoProduto, int quantidade) {
+		ProdutosEletronicos produto = procurarPorNumero(codigoProduto);
+
+		if (produto != null) {
+			double total = produto.getPreco() * quantidade;
+			System.out.println("Compra realizada com sucesso. Total a pagar: " + total);
+			return (float) total;
+		} else {
+			System.out.println("Produto não encontrado.");
+			return (0);
+		}
+	}
+
+	public void apagarProduto(int codigoProduto) {
+		ProdutosEletronicos produto = procurarPorNumero(codigoProduto);
+		
+		if (produto != null) {
+			deletar(codigoProduto);
+			System.out.println("Produto removido com sucesso!");
+			
+		} else {
+			System.out.println("Produto não encontrado.");
+
+		}
+
+	}
+
 }

@@ -1,14 +1,14 @@
 package loja.repository;
 
-import loja.model.Produto;
+import loja.model.ProdutosEletronicos;
 
 public interface ProdutoRepository {
 
-    // Criando CRUD 
+
     public void  procurarPorNumero(int numero);
     public void listarTodas();
-    public void cadastrar(Produto produto);
-    public void atualizar(Produto conta) ;
+    public void cadastrar(ProdutosEletronicos cadastrar);
+    public void atualizar(ProdutosEletronicos atualizar) ;
     public void deletar(int numero);
 
 }
