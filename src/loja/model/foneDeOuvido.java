@@ -1,6 +1,6 @@
 package loja.model;
 
-public class foneDeOuvido extends Produto {
+public class foneDeOuvido extends ProdutosEletronicos {
 
 	private String comFio;
 	
@@ -22,4 +22,22 @@ public class foneDeOuvido extends Produto {
         super.visualizar();
         System.out.println("Com Fio: " + comFio);
 }
+
+	@Override
+	public String getTipoNome() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setNumero(int gerarNumero) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getNumero() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

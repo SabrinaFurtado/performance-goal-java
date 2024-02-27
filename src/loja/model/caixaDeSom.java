@@ -1,6 +1,6 @@
 package loja.model;
 
-public class caixaDeSom extends Produto {
+public class caixaDeSom extends ProdutosEletronicos {
 
 	private String bluetooth;
 
@@ -21,6 +21,24 @@ public class caixaDeSom extends Produto {
 	public void visualizar() {
 		super.visualizar();
 		System.out.println("Bluetooth: " + bluetooth);
+	}
+
+	@Override
+	public String getTipoNome() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setNumero(int gerarNumero) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getNumero() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
