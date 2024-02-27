@@ -31,28 +31,9 @@ public class LojaController {
 		System.out.println("Produto " + produto.getNome() + " cadastrado com sucesso!");
 	}
 
-	public void atualizar(Produto produto) {
-		Produto produtoEncontrado = procurarPorNumero(produto.getNumero());
-		if (produtoEncontrado != null) {
-			int index = listaProdutos.indexOf(produtoEncontrado);
-			listaProdutos.set(index, produto);
-			System.out.println("Produto " + produto.getNome() + " atualizado com sucesso!");
-		} else {
-			System.out.println("Produto não encontrado.");
+
 		}
 	}
 
-	public void deletar(int numero) {
-		Produto produtoEncontrado = procurarPorNumero(numero);
-		if (produtoEncontrado != null) {
-			listaProdutos.remove(produtoEncontrado);
-			System.out.println("Produto removido com sucesso!");
-		} else {
-			System.out.println("Produto não encontrado.");
-		}
-	}
+	
 
-	public int gerarNumero() {
-		return ++numero;
-	}
-}
