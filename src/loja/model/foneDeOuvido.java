@@ -16,5 +16,10 @@ public class foneDeOuvido extends Produto {
 	public void setComFio(String comFio) {
 		this.comFio = comFio;
 	}
-
+	
+	@Override
+    public void visualizar() {
+        super.visualizar();
+        System.out.println("Com Fio: " + comFio);
+}
 }
