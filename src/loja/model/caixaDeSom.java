@@ -17,7 +17,10 @@ public class caixaDeSom extends Produto {
 		this.bluetooth = bluetooth;
 	}
 
+	@Override
+	public void visualizar() {
+		super.visualizar();
+		System.out.println("Bluetooth: " + bluetooth);
+	}
 
 }
-
-
